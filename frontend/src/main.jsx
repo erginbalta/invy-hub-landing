@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import {
   ArrowRight,
   BarChart3,
@@ -330,7 +330,9 @@ function Landing() {
     <main>
       <header className="nav">
         <a className="brand" href="#" data-testid="brand-link">
-          <img className="brand-logo" src="/invy-logo.png" alt={t.common.brand} />
+          <span className="logo-orb">
+            <img className="brand-logo" src="/invy-logo.png" alt={t.common.brand} />
+          </span>
         </a>
         <nav className="desktop-nav">
           {t.landing.nav.map((item, index) => (
@@ -368,6 +370,7 @@ function Landing() {
       )}
 
       <section className="hero">
+        <HeroBackground />
         <div className="hero-copy">
           <p className="eyebrow">{t.landing.heroEyebrow}</p>
           <h1>{t.landing.heroTitle}</h1>
@@ -455,13 +458,65 @@ function Landing() {
   );
 }
 
+function HeroBackground() {
+  const shouldReduceMotion = useReducedMotion();
+  const flowAnimation = shouldReduceMotion ? undefined : { x: ["-18%", "118%"] };
+  const pulseAnimation = shouldReduceMotion ? undefined : { scale: [1, 1.22, 1], opacity: [0.32, 0.76, 0.32] };
+
+  return (
+    <div className="hero-background" aria-hidden="true">
+      <div className="route-grid" />
+      <div className="route-line route-line-a" />
+      <div className="route-line route-line-b" />
+      <div className="route-line route-line-c" />
+      <motion.span
+        className="route-flow route-flow-a"
+        animate={flowAnimation}
+        transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+      />
+      <motion.span
+        className="route-flow route-flow-b"
+        animate={flowAnimation}
+        transition={{ duration: 10, repeat: Infinity, ease: "linear", delay: 1.2 }}
+      />
+      <motion.span
+        className="route-node node-a"
+        animate={pulseAnimation}
+        transition={{ duration: 3.8, repeat: Infinity }}
+      />
+      <motion.span
+        className="route-node node-b"
+        animate={pulseAnimation}
+        transition={{ duration: 4.4, repeat: Infinity, delay: 0.7 }}
+      />
+      <motion.div
+        className="inventory-tile tile-a"
+        animate={shouldReduceMotion ? undefined : { y: [0, -10, 0] }}
+        transition={{ duration: 7, repeat: Infinity }}
+      >
+        <PackageCheck size={17} />
+        <span>98%</span>
+      </motion.div>
+      <motion.div
+        className="inventory-tile tile-b"
+        animate={shouldReduceMotion ? undefined : { y: [0, 12, 0] }}
+        transition={{ duration: 8, repeat: Infinity }}
+      >
+        <Boxes size={17} />
+        <span>SKU</span>
+      </motion.div>
+    </div>
+  );
+}
+
 function FloatingConsole() {
   const { t } = useLanguage();
+  const shouldReduceMotion = useReducedMotion();
   return (
     <div className="hero-visual" aria-hidden="true">
       <motion.div
         className="console-card main-console"
-        animate={{ y: [0, -12, 0], rotateX: [0, 3, 0] }}
+        animate={shouldReduceMotion ? undefined : { y: [0, -12, 0], rotateX: [0, 3, 0] }}
         transition={{ duration: 5, repeat: Infinity }}
       >
         <div className="console-top">
@@ -479,10 +534,18 @@ function FloatingConsole() {
           <i />
         </div>
       </motion.div>
-      <motion.div className="floating-chip chip-one" animate={{ y: [0, 18, 0], rotate: [0, -4, 0] }} transition={{ duration: 6, repeat: Infinity }}>
+      <motion.div
+        className="floating-chip chip-one"
+        animate={shouldReduceMotion ? undefined : { y: [0, 18, 0], rotate: [0, -4, 0] }}
+        transition={{ duration: 6, repeat: Infinity }}
+      >
         <Boxes /> {t.landing.chipSku}
       </motion.div>
-      <motion.div className="floating-chip chip-two" animate={{ y: [0, -16, 0], rotate: [0, 5, 0] }} transition={{ duration: 5.4, repeat: Infinity }}>
+      <motion.div
+        className="floating-chip chip-two"
+        animate={shouldReduceMotion ? undefined : { y: [0, -16, 0], rotate: [0, 5, 0] }}
+        transition={{ duration: 5.4, repeat: Infinity }}
+      >
         <Coffee /> {t.landing.chipCafe}
       </motion.div>
     </div>
@@ -594,7 +657,9 @@ function Footer() {
     <footer className="site-footer">
       <div className="footer-main">
         <div className="footer-brand">
-          <img className="footer-logo" src="/invy-logo.png" alt={t.common.brand} />
+          <span className="logo-orb footer-logo-orb">
+            <img className="footer-logo" src="/invy-logo.png" alt={t.common.brand} />
+          </span>
           <p>{t.footer.description}</p>
         </div>
 
@@ -636,7 +701,9 @@ function AdminApp() {
     <main className="admin-shell">
       <header className="admin-header">
         <a className="brand admin-brand" href="/">
-          <img className="brand-logo" src="/invy-logo.png" alt={t.common.brand} />
+          <span className="logo-orb">
+            <img className="brand-logo" src="/invy-logo.png" alt={t.common.brand} />
+          </span>
           <span>{t.admin.title}</span>
         </a>
         <div className="admin-actions">
