@@ -1,58 +1,61 @@
 # Invy Hub Landing
 
-React/Vite landing page plus a FastAPI admin/contact API. Data is stored in Supabase Postgres and the project is structured for Vercel Services.
+React/Vite landing page with a Vercel Node Functions API for the contact form and admin panel. Data is stored in Supabase Postgres through `DATABASE_URL`.
 
 ## Local Setup
 
-1. Copy env files:
+1. Install dependencies:
+
+```bash
+npm install
+npm --prefix frontend install
+```
+
+2. Copy env files:
 
 ```bash
 copy backend\.env.example backend\.env
 copy frontend\.env.example frontend\.env
 ```
 
-2. Fill `backend/.env`:
+3. Fill `backend/.env` for local smoke tests:
 
 ```env
 DATABASE_URL="postgresql://postgres.project-ref:password@host:6543/postgres?pgbouncer=true"
 JWT_SECRET="use-a-long-random-secret"
 ADMIN_EMAIL="admin@invy.app"
 ADMIN_PASSWORD="change-this-password"
-CORS_ORIGINS="http://localhost:5173,http://localhost:3000"
-```
-
-3. Start the backend:
-
-```bash
-cd backend
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 4. Start the frontend:
 
 ```bash
-cd frontend
-npm install
-npm run dev
+npm run frontend:dev
 ```
 
 Frontend: `http://localhost:5173`
 
 Admin panel: `http://localhost:5173/urs-admin`
 
-API health: `http://localhost:8000/api/`
+For full local Vercel routing, run `npx vercel dev` from the project root.
+
+## Checks
+
+```bash
+npm run build
+npm run api:smoke
+```
+
+`api:smoke` loads `backend/.env`, writes a temporary contact message, logs in as admin, reads stats/messages, toggles read status, and deletes the temporary message.
 
 ## Vercel Deployment
 
-The root `vercel.json` uses Vercel Services:
+The root `vercel.json` deploys:
 
-- `frontend` is served at `/`
-- `backend/main.py` is served at `/api`
-
-In Vercel Project Settings, set Framework Preset to `Services`.
+- `frontend/dist` as the static site
+- `api/**` as Node.js Vercel Functions
+- `/urs-admin` and `/urs-admin/*` as frontend routes
+- `/api/*` as serverless API routes
 
 Add these Vercel environment variables:
 
@@ -61,10 +64,9 @@ DATABASE_URL
 JWT_SECRET
 ADMIN_EMAIL
 ADMIN_PASSWORD
-CORS_ORIGINS
 ```
 
-Use the production domain in `CORS_ORIGINS` after the first deploy. The backend creates the required tables on startup. You can also run `supabase/schema.sql` manually in Supabase SQL Editor if you want to provision schema yourself.
+The API creates the required tables on first use. You can also run `supabase/schema.sql` manually in Supabase SQL Editor if you want to provision schema yourself.
 
 ## API Contract
 
@@ -77,4 +79,4 @@ Use the production domain in `CORS_ORIGINS` after the first deploy. The backend 
 - `PATCH /api/admin/messages/{id}/read`
 - `DELETE /api/admin/messages/{id}`
 
-The frontend never talks to Supabase directly. Database credentials must only exist in backend and Vercel environment variables.
+The frontend never talks to Supabase directly. Database credentials must only exist in local env files and Vercel environment variables.
