@@ -30,7 +30,6 @@ const copy = {
   tr: {
     common: {
       brand: "Invy",
-      adminLink: "Admin",
       productNames: { invy: "Invy", erp: "Invy ERP", cafe: "Invy Cafe" },
       errors: {
         default: "İstek tamamlanamadı.",
@@ -133,11 +132,17 @@ const copy = {
         cafe: "Cafe",
       },
     },
+    footer: {
+      description:
+        "Invy, stok yönetimini sadeleştiren ve işletmelerin günlük operasyonlarını daha güvenilir hale getiren modern bir ekosistemdir.",
+      productsTitle: "Ürünler",
+      companyTitle: "Şirket",
+      rights: "Tüm hakları saklıdır.",
+    },
   },
   en: {
     common: {
       brand: "Invy",
-      adminLink: "Admin",
       productNames: { invy: "Invy", erp: "Invy ERP", cafe: "Invy Cafe" },
       errors: {
         default: "The request could not be completed.",
@@ -239,6 +244,13 @@ const copy = {
         erp: "ERP",
         cafe: "Cafe",
       },
+    },
+    footer: {
+      description:
+        "Invy is a modern ecosystem that simplifies inventory management and makes everyday operations more reliable.",
+      productsTitle: "Products",
+      companyTitle: "Company",
+      rights: "All rights reserved.",
     },
   },
 };
@@ -596,12 +608,43 @@ function DownloadDialog({ onClose }) {
 
 function Footer() {
   const { t } = useLanguage();
+  const currentYear = new Date().getFullYear();
+  const companyLinks = [
+    { label: t.landing.nav[0], href: "#ecosystem" },
+    { label: t.landing.nav[1], href: "#features" },
+    { label: t.landing.nav[2], href: "#vision" },
+    { label: t.landing.nav[3], href: "#contact" },
+  ];
+
   return (
-    <footer>
-      <div className="brand">
-        <img className="brand-logo" src="/invy-logo.png" alt={t.common.brand} />
+    <footer className="site-footer">
+      <div className="footer-main">
+        <div className="footer-brand">
+          <img className="footer-logo" src="/invy-logo.png" alt={t.common.brand} />
+          <p>{t.footer.description}</p>
+        </div>
+
+        <div className="footer-column">
+          <h3>{t.footer.productsTitle}</h3>
+          <span>{t.common.productNames.invy}</span>
+          <span>{t.common.productNames.erp}</span>
+          <span>{t.common.productNames.cafe}</span>
+        </div>
+
+        <div className="footer-column">
+          <h3>{t.footer.companyTitle}</h3>
+          {companyLinks.map((link) => (
+            <a key={link.href} href={link.href}>
+              {link.label}
+            </a>
+          ))}
+        </div>
       </div>
-      <a href="/urs-admin">{t.common.adminLink}</a>
+
+      <div className="footer-bottom">
+        <span>© {currentYear} Invy.</span>
+        <span>{t.footer.rights}</span>
+      </div>
     </footer>
   );
 }

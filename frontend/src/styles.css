@@ -394,12 +394,73 @@ textarea {
   resize: vertical;
 }
 
-footer {
+.site-footer {
+  color: #f8f7f4;
+  background: #1f2933;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: minmax(260px, 1.35fr) repeat(2, minmax(160px, 0.45fr));
+  gap: clamp(28px, 6vw, 76px);
+  padding: 54px clamp(20px, 6vw, 88px) 42px;
+}
+
+.footer-brand {
+  max-width: 480px;
+}
+
+.footer-logo {
+  display: block;
+  width: auto;
+  height: 64px;
+  object-fit: contain;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.22));
+}
+
+.footer-brand p {
+  margin: 0;
+  max-width: 430px;
+  color: rgba(248, 247, 244, 0.72);
+}
+
+.footer-column {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+.footer-column h3 {
+  margin: 0 0 6px;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.footer-column a,
+.footer-column span {
+  color: rgba(248, 247, 244, 0.68);
+  font-weight: 700;
+}
+
+.footer-column a {
+  transition: color 160ms ease;
+}
+
+.footer-column a:hover {
+  color: #e3f1ec;
+}
+
+.footer-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 30px clamp(20px, 6vw, 88px);
-  border-top: 1px solid #e5e1da;
+  gap: 14px;
+  padding: 18px clamp(20px, 6vw, 88px);
+  color: rgba(248, 247, 244, 0.62);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.95rem;
 }
 
 .modal-backdrop {
@@ -537,5 +598,15 @@ footer {
 
   .message-card {
     grid-template-columns: 1fr;
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr;
+    padding-top: 42px;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
