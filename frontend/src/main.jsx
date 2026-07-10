@@ -43,7 +43,7 @@ const copy = {
       },
     },
     landing: {
-      nav: ["Ekosistem", "Özellikler", "Vizyon", "İletişim"],
+      nav: ["Ekosistem", "Özellikler", "İletişim"],
       getStarted: "İletişime geç",
       heroEyebrow: "Offline-first stok operasyonları",
       heroTitle: "Modern stok yönetimi için Invy ekosistemi",
@@ -86,13 +86,6 @@ const copy = {
         text: "Cafe tarafındaki atık ve SKT odağı daha iyi tahminleme için hazırlanır.",
       },
     ],
-    vision: {
-      eyebrow: "Invy",
-      title: "Vizyon ve misyon",
-      visionText: "Vizyonumuz stok yönetimini herkes için ulaşılabilir, sade ve güvenilir kılmak.",
-      missionText:
-        "Misyonumuz işletmelerin günlük kararlarını daha az karmaşa ve daha az israfla almasını sağlamak.",
-    },
     contact: {
       eyebrow: "İletişim",
       title: "ERP veya Cafe için haberleşelim",
@@ -156,7 +149,7 @@ const copy = {
       },
     },
     landing: {
-      nav: ["Ecosystem", "Features", "Vision", "Contact"],
+      nav: ["Ecosystem", "Features", "Contact"],
       getStarted: "Get in touch",
       heroEyebrow: "Offline-first stock operations",
       heroTitle: "The Invy ecosystem for modern stock work",
@@ -199,13 +192,6 @@ const copy = {
         text: "The cafe product is being prepared around waste, expiry dates, and better forecasting.",
       },
     ],
-    vision: {
-      eyebrow: "Invy",
-      title: "Vision and mission",
-      visionText: "Our vision is to make inventory management accessible, simple, and reliable for everyone.",
-      missionText:
-        "Our mission is to help businesses make daily decisions with less friction and less waste.",
-    },
     contact: {
       eyebrow: "Contact",
       title: "Tell us about ERP or Cafe",
@@ -333,7 +319,7 @@ function Landing() {
   const { t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
   const [downloadOpen, setDownloadOpen] = useState(false);
-  const navTargets = ["#ecosystem", "#features", "#vision", "#contact"];
+  const navTargets = ["#ecosystem", "#features", "#contact"];
 
   const openContact = (product = t.common.productNames.erp) => {
     window.dispatchEvent(new CustomEvent("invy:contact", { detail: { product } }));
@@ -459,17 +445,6 @@ function Landing() {
               <p>{feature.text}</p>
             </motion.article>
           ))}
-        </div>
-      </section>
-
-      <section id="vision" className="section vision">
-        <div>
-          <p className="eyebrow">{t.vision.eyebrow}</p>
-          <h2>{t.vision.title}</h2>
-        </div>
-        <div className="vision-copy">
-          <p>{t.vision.visionText}</p>
-          <p>{t.vision.missionText}</p>
         </div>
       </section>
 
@@ -612,8 +587,7 @@ function Footer() {
   const companyLinks = [
     { label: t.landing.nav[0], href: "#ecosystem" },
     { label: t.landing.nav[1], href: "#features" },
-    { label: t.landing.nav[2], href: "#vision" },
-    { label: t.landing.nav[3], href: "#contact" },
+    { label: t.landing.nav[2], href: "#contact" },
   ];
 
   return (

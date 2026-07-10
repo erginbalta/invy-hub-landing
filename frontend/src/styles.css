@@ -309,8 +309,7 @@ p {
   margin-bottom: 32px;
 }
 
-.section h2,
-.vision h2 {
+.section h2 {
   font-size: clamp(2.2rem, 4vw, 4rem);
   line-height: 1;
 }
@@ -351,24 +350,11 @@ p {
   background: #fff;
 }
 
-.vision,
 .contact-section {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
   gap: clamp(28px, 6vw, 80px);
   align-items: start;
-}
-
-.vision-copy {
-  display: grid;
-  gap: 18px;
-}
-
-.vision-copy p {
-  margin: 0;
-  padding: 24px;
-  border-left: 4px solid #2f6b5f;
-  background: #fff;
 }
 
 .contact-form,
@@ -577,7 +563,6 @@ textarea {
   }
 
   .hero,
-  .vision,
   .contact-section {
     grid-template-columns: 1fr;
   }
