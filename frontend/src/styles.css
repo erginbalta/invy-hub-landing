@@ -1,0 +1,542 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Outfit:wght@500;600;700;800&display=swap");
+
+:root {
+  color: #1f2933;
+  background: #f8f7f4;
+  font-family: "DM Sans", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #f8f7f4;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: "Outfit", sans-serif;
+  letter-spacing: 0;
+}
+
+p {
+  color: #6b7280;
+  line-height: 1.65;
+}
+
+.nav,
+.admin-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 14px clamp(18px, 4vw, 56px);
+  border-bottom: 1px solid #e5e1da;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(18px);
+}
+
+.brand,
+.desktop-nav,
+.nav-actions,
+.admin-actions,
+.hero-actions,
+.message-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand {
+  font-family: "Outfit", sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.brand-logo {
+  display: block;
+  width: auto;
+  height: 54px;
+  object-fit: contain;
+}
+
+.admin-brand .brand-logo {
+  height: 46px;
+}
+
+.brand-mark,
+.product-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  color: white;
+  background: #2f6b5f;
+  box-shadow: 0 12px 30px rgba(47, 107, 95, 0.24);
+}
+
+.desktop-nav a {
+  color: #52606d;
+  font-weight: 700;
+}
+
+.button,
+.icon-button,
+.language-toggle button {
+  border: 0;
+  cursor: pointer;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+.button.primary {
+  color: white;
+  background: #2f6b5f;
+}
+
+.button.secondary {
+  color: #2f6b5f;
+  background: #e3f1ec;
+}
+
+.button.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.icon-button {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  color: #2f6b5f;
+  background: #e3f1ec;
+}
+
+.icon-button.danger {
+  color: #c2410c;
+  background: #fff1eb;
+}
+
+.language-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px;
+  border: 1px solid #e5e1da;
+  border-radius: 999px;
+  background: #fff;
+}
+
+.language-toggle button {
+  min-width: 34px;
+  min-height: 30px;
+  border-radius: 999px;
+  color: #6b7280;
+  background: transparent;
+  font-weight: 800;
+}
+
+.language-toggle button.active {
+  color: white;
+  background: #2f6b5f;
+}
+
+.mobile-only,
+.mobile-menu {
+  display: none;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.85fr);
+  gap: clamp(32px, 6vw, 72px);
+  align-items: center;
+  min-height: calc(100vh - 72px);
+  padding: 72px clamp(20px, 6vw, 88px) 48px;
+}
+
+.hero h1 {
+  max-width: 820px;
+  font-size: clamp(3rem, 7vw, 5.9rem);
+  line-height: 0.96;
+}
+
+.hero-copy > p {
+  max-width: 620px;
+  font-size: 1.18rem;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: #2f6b5f;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.hero-visual {
+  position: relative;
+  min-height: 460px;
+  perspective: 1000px;
+}
+
+.console-card,
+.floating-chip,
+.product-card,
+.feature-card,
+.contact-form,
+.login-panel,
+.message-card,
+.stat-card,
+.modal {
+  border: 1px solid #e5e1da;
+  background: #fff;
+  box-shadow: 0 22px 65px rgba(31, 41, 51, 0.08);
+}
+
+.main-console {
+  position: absolute;
+  inset: 56px 10px auto 0;
+  min-height: 290px;
+  padding: 22px;
+  border-radius: 28px;
+  transform: rotateY(-12deg) rotateX(6deg);
+}
+
+.console-top {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.console-top span {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #e5e1da;
+}
+
+.metric-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 18px;
+  border-radius: 18px;
+  background: #f8f7f4;
+}
+
+.bars {
+  display: grid;
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.bars i {
+  display: block;
+  height: 18px;
+  border-radius: 999px;
+  background: #e3f1ec;
+}
+
+.bars i:nth-child(2) {
+  width: 78%;
+}
+
+.bars i:nth-child(3) {
+  width: 54%;
+}
+
+.floating-chip {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 18px;
+  border-radius: 999px;
+  font-weight: 900;
+}
+
+.chip-one {
+  right: 0;
+  top: 18px;
+}
+
+.chip-two {
+  left: 8px;
+  bottom: 34px;
+}
+
+.section {
+  padding: 86px clamp(20px, 6vw, 88px);
+}
+
+.section-heading {
+  max-width: 720px;
+  margin-bottom: 32px;
+}
+
+.section h2,
+.vision h2 {
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 1;
+}
+
+.app-grid,
+.feature-grid,
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.product-card,
+.feature-card {
+  min-height: 330px;
+  padding: 24px;
+  border-radius: 24px;
+}
+
+.product-card h3,
+.feature-card h3 {
+  margin-top: 24px;
+  font-size: 1.55rem;
+}
+
+.status {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: #2f6b5f;
+  background: #e3f1ec;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.feature-band {
+  background: #fff;
+}
+
+.vision,
+.contact-section {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(28px, 6vw, 80px);
+  align-items: start;
+}
+
+.vision-copy {
+  display: grid;
+  gap: 18px;
+}
+
+.vision-copy p {
+  margin: 0;
+  padding: 24px;
+  border-left: 4px solid #2f6b5f;
+  background: #fff;
+}
+
+.contact-form,
+.login-panel {
+  display: grid;
+  gap: 14px;
+  padding: 24px;
+  border-radius: 22px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid #e5e1da;
+  border-radius: 14px;
+  padding: 14px 16px;
+  color: #1f2933;
+  background: #fff;
+}
+
+textarea {
+  resize: vertical;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px clamp(20px, 6vw, 88px);
+  border-top: 1px solid #e5e1da;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(31, 41, 51, 0.38);
+}
+
+.modal {
+  position: relative;
+  display: grid;
+  gap: 16px;
+  width: min(460px, 100%);
+  padding: 28px;
+  border-radius: 24px;
+}
+
+.close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+
+.small {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.admin-shell {
+  min-height: 100vh;
+}
+
+.login-panel {
+  width: min(430px, calc(100% - 32px));
+  margin: 80px auto;
+}
+
+.admin-dashboard {
+  padding: 32px clamp(18px, 4vw, 56px);
+}
+
+.stat-card {
+  padding: 18px;
+  border-radius: 18px;
+}
+
+.stat-card span {
+  display: block;
+  color: #6b7280;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.stat-card strong {
+  font-family: "Outfit", sans-serif;
+  font-size: 2rem;
+}
+
+.message-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.message-card {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.7fr) 1fr auto;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 18px;
+}
+
+.message-card.read {
+  opacity: 0.72;
+}
+
+.message-card a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #2f6b5f;
+}
+
+@media (max-width: 860px) {
+  .desktop-nav,
+  .nav-actions > .language-toggle,
+  .nav-actions > .button {
+    display: none;
+  }
+
+  .mobile-only {
+    display: inline-grid;
+  }
+
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    display: grid;
+    align-content: center;
+    gap: 18px;
+    padding: 32px;
+    background: #f8f7f4;
+  }
+
+  .mobile-menu a {
+    font-family: "Outfit", sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+  }
+
+  .hero,
+  .vision,
+  .contact-section {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 46px;
+  }
+
+  .hero-visual {
+    min-height: 330px;
+  }
+
+  .app-grid,
+  .feature-grid,
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .message-card {
+    grid-template-columns: 1fr;
+  }
+}

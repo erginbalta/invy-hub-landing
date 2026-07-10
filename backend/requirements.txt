@@ -1,0 +1,6 @@
+bcrypt>=4.3.0
+email-validator>=2.3.0
+fastapi[standard]>=0.128.1
+psycopg[binary]>=3.2.13
+pyjwt>=2.10.1
+python-dotenv>=1.2.1
