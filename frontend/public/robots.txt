@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /usr-admin
+Disallow: /usr-admin/
+
+Sitemap: https://invy-hub-landing-prod.vercel.app/sitemap.xml

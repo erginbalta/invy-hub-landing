@@ -30,12 +30,14 @@ ADMIN_PASSWORD="change-this-password"
 4. Start the frontend:
 
 ```bash
+npm run api:dev
 npm run frontend:dev
 ```
 
 Frontend: `http://localhost:5173`
+API: `http://localhost:3000/api`
 
-Admin panel: `http://localhost:5173/urs-admin`
+Admin panel: `http://localhost:5173/usr-admin`
 
 For full local Vercel routing, run `npx vercel dev` from the project root.
 
@@ -54,7 +56,7 @@ The root `vercel.json` deploys:
 
 - `frontend/dist` as the static site
 - `api/**` as Node.js Vercel Functions
-- `/urs-admin` and `/urs-admin/*` as frontend routes
+- `/usr-admin` and `/usr-admin/*` as frontend routes
 - `/api/*` as serverless API routes
 
 Add these Vercel environment variables:

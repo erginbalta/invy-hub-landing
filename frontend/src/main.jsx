@@ -25,6 +25,18 @@ import "./styles.css";
 
 const API_URL = (import.meta.env.VITE_API_URL || "/api").replace(/\/$/, "");
 const ADMIN_TOKEN_KEY = "invy_admin_token";
+const SEO_METADATA = {
+  tr: {
+    title: "Invy | Stok Takibi, Depo Yönetimi, Cafe ve ERP Çözümleri",
+    description:
+      "Invy; stok takibi, depo yönetimi, barkodlu stok takibi, cafe takip, QR menü, lojistik takip ve ERP stok yönetimi için modern çözümler sunar.",
+  },
+  en: {
+    title: "Invy | Inventory Tracking, Warehouse, Cafe and ERP Solutions",
+    description:
+      "Invy supports inventory tracking, stock management, warehouse management, cafe inventory tracking, QR menu workflows, logistics tracking and ERP inventory management.",
+  },
+};
 
 const copy = {
   tr: {
@@ -46,15 +58,15 @@ const copy = {
       nav: ["Ekosistem", "Özellikler", "İletişim"],
       getStarted: "İletişime geç",
       heroEyebrow: "Offline-first stok operasyonları",
-      heroTitle: "Modern stok yönetimi için Invy ekosistemi",
+      heroTitle: "Stok takibi, depo yönetimi ve cafe operasyonları için Invy",
       heroText:
-        "Invy, küçük işletmelerden büyüyen operasyonlara kadar stok takibini sade, erişilebilir ve sürdürülebilir hale getirir.",
+        "Invy, küçük işletme stok yönetimi, barkodlu stok takibi, cafe takip ve ERP stok yönetimi süreçlerini sade, erişilebilir ve sürdürülebilir hale getirir.",
       explore: "Ekosistemi keşfet",
       contact: "İletişime geç",
       ecosystemEyebrow: "Ekosistem",
       appsTitle: "Üç ürün, tek stok aklı",
       appsText:
-        "Invy bugün kullanıma hazır. Invy ERP ve Invy Cafe, farklı işletme ritimlerine göre tasarlanıyor.",
+        "Invy bugün stok takip programı olarak kullanıma hazır. Invy ERP depo stok yönetimi ve lojistik operasyon takibi için, Invy Cafe ise cafe stok takibi ve QR menü ihtiyaçları için tasarlanıyor.",
       featuresEyebrow: "Yetenekler",
       featuresTitle: "İşletmenin günlük akışına uyum sağlar",
       consoleTitle: "Invy Stok",
@@ -66,24 +78,24 @@ const copy = {
       comingSoon: "Yapım aşamasında",
       download: "Invy indir",
       invy:
-        "Offline-first stok sayımı, barkod okutma ve lokal veri yaklaşımıyla küçük işletmeler için hazır.",
+        "Offline stok takibi, barkodlu stok sayımı, envanter yönetimi ve lokal veri yaklaşımıyla küçük işletmeler için hazır.",
       erp:
-        "Büyüyen işletmeler için stok görünürlüğü, ekip koordinasyonu ve sade operasyon yönetimi.",
+        "Büyüyen işletmeler için ERP stok yönetimi, depo yönetimi, lojistik takip ve ekip koordinasyonu.",
       cafe:
-        "Butik kafeler için menü yönetimi, atık takibi ve SKT duyarlılığı ile daha doğru planlama.",
+        "Butik kafeler için cafe stok takibi, cafe takip, QR menü, atık takibi ve SKT duyarlılığı ile daha doğru planlama.",
     },
     features: [
       {
-        title: "Lokalde güvenli veri",
-        text: "Invy’nin offline-first yaklaşımı bağlantı kesildiğinde bile sayım akışını korur.",
+        title: "Offline stok takibi",
+        text: "Invy’nin offline-first yaklaşımı bağlantı kesildiğinde bile depo stok takibi ve barkodlu sayım akışını korur.",
       },
       {
-        title: "Basit ekip akışı",
-        text: "Ürünler, sayımlar ve mesajlar fazla eğitim gerektirmeyen yüzeylerle yönetilir.",
+        title: "Basit depo ve ekip akışı",
+        text: "Ürünler, sayımlar, depo yönetimi ve ekip mesajları fazla eğitim gerektirmeyen yüzeylerle yönetilir.",
       },
       {
-        title: "Sürdürülebilir stok",
-        text: "Cafe tarafındaki atık ve SKT odağı daha iyi tahminleme için hazırlanır.",
+        title: "Cafe ve QR menü odağı",
+        text: "Cafe stok takibi, QR menü, atık ve SKT odağı daha iyi planlama ve sürdürülebilir envanter yönetimi için hazırlanır.",
       },
     ],
     contact: {
@@ -127,7 +139,7 @@ const copy = {
     },
     footer: {
       description:
-        "Invy, stok yönetimini sadeleştiren ve işletmelerin günlük operasyonlarını daha güvenilir hale getiren modern bir ekosistemdir.",
+        "Invy; stok takibi, depo yönetimi, cafe takip, QR menü, lojistik takip ve ERP stok yönetimi süreçlerini sadeleştiren modern bir ekosistemdir.",
       productsTitle: "Ürünler",
       companyTitle: "Şirket",
       rights: "Tüm hakları saklıdır.",
@@ -152,15 +164,15 @@ const copy = {
       nav: ["Ecosystem", "Features", "Contact"],
       getStarted: "Get in touch",
       heroEyebrow: "Offline-first stock operations",
-      heroTitle: "The Invy ecosystem for modern stock work",
+      heroTitle: "Inventory tracking, warehouse management, cafe and ERP workflows",
       heroText:
-        "Invy makes inventory simpler, more accessible, and more sustainable for small teams and growing operations.",
+        "Invy makes inventory tracking, stock management, barcode inventory, cafe inventory tracking and ERP inventory management simpler for small teams and growing operations.",
       explore: "Explore ecosystem",
       contact: "Contact us",
       ecosystemEyebrow: "Ecosystem",
       appsTitle: "Three products, one inventory brain",
       appsText:
-        "Invy is available today. Invy ERP and Invy Cafe are being shaped for different operating rhythms.",
+        "Invy is available today as an offline inventory app. Invy ERP is shaped for warehouse management and logistics tracking, while Invy Cafe supports cafe inventory tracking and QR menu workflows.",
       featuresEyebrow: "Capabilities",
       featuresTitle: "Built for daily operating flow",
       consoleTitle: "Invy Stock",
@@ -172,24 +184,24 @@ const copy = {
       comingSoon: "Coming soon",
       download: "Download Invy",
       invy:
-        "Ready for small businesses with offline-first counts, barcode scanning, and local-first data.",
+        "Ready for small business inventory with offline inventory tracking, barcode inventory counts, and local-first data.",
       erp:
-        "Clear stock visibility, team coordination, and simple operations for growing businesses.",
+        "ERP inventory management, warehouse management, logistics tracking, team coordination, and simple operations for growing businesses.",
       cafe:
-        "Menu management, waste tracking, and expiry awareness for boutique cafes and better planning.",
+        "Cafe inventory tracking, QR menu workflows, waste tracking, and expiry awareness for boutique cafes and better planning.",
     },
     features: [
       {
-        title: "Safe local data",
-        text: "Invy’s offline-first approach keeps counting work moving even when the connection drops.",
+        title: "Offline inventory tracking",
+        text: "Invy’s offline-first approach keeps warehouse stock counts and barcode inventory workflows moving even when the connection drops.",
       },
       {
-        title: "Simple team flow",
-        text: "Products, counts, and messages are managed through surfaces that need little training.",
+        title: "Simple warehouse flow",
+        text: "Products, stock counts, warehouse management, and team messages are managed through surfaces that need little training.",
       },
       {
-        title: "Sustainable inventory",
-        text: "The cafe product is being prepared around waste, expiry dates, and better forecasting.",
+        title: "Cafe and QR menu focus",
+        text: "The cafe product is being prepared around cafe inventory tracking, QR menu workflows, waste, expiry dates, and better forecasting.",
       },
     ],
     contact: {
@@ -233,7 +245,7 @@ const copy = {
     },
     footer: {
       description:
-        "Invy is a modern ecosystem that simplifies inventory management and makes everyday operations more reliable.",
+        "Invy is a modern ecosystem for inventory tracking, stock management, warehouse management, cafe tracking, QR menu workflows, logistics tracking, and ERP inventory management.",
       productsTitle: "Products",
       companyTitle: "Company",
       rights: "All rights reserved.",
@@ -290,7 +302,27 @@ function App() {
   }, [lang]);
 
   const value = useMemo(() => ({ lang, setLang, t: copy[lang] }), [lang]);
-  const isAdmin = window.location.pathname.startsWith("/urs-admin");
+  const pathname = window.location.pathname;
+  const isLegacyAdmin = pathname.startsWith("/urs-admin");
+  const isAdmin = pathname.startsWith("/usr-admin") || isLegacyAdmin;
+
+  useEffect(() => {
+    if (isLegacyAdmin) {
+      window.history.replaceState(null, "", pathname.replace("/urs-admin", "/usr-admin"));
+    }
+  }, [isLegacyAdmin, pathname]);
+
+  useEffect(() => {
+    const robots = document.querySelector('meta[name="robots"]');
+    const description = document.querySelector('meta[name="description"]');
+    if (robots) {
+      robots.setAttribute("content", isAdmin ? "noindex, nofollow" : "index, follow");
+    }
+    if (description) {
+      description.setAttribute("content", SEO_METADATA[lang].description);
+    }
+    document.title = isAdmin ? "Invy Admin" : SEO_METADATA[lang].title;
+  }, [isAdmin, lang]);
 
   return (
     <LanguageContext.Provider value={value}>

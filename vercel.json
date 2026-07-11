@@ -3,13 +3,49 @@
   "installCommand": "npm install && npm --prefix frontend install",
   "buildCommand": "npm run build",
   "outputDirectory": "frontend/dist",
-  "rewrites": [
+  "headers": [
+    {
+      "source": "/usr-admin",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/usr-admin/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
+  ],
+  "redirects": [
     {
       "source": "/urs-admin",
-      "destination": "/index.html"
+      "destination": "/usr-admin",
+      "permanent": false
     },
     {
       "source": "/urs-admin/(.*)",
+      "destination": "/usr-admin/$1",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
+      "source": "/usr-admin",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/usr-admin/(.*)",
       "destination": "/index.html"
     },
     {

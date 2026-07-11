@@ -5,6 +5,7 @@
   "scripts": {
     "build": "npm --prefix frontend run build",
     "frontend:dev": "npm --prefix frontend run dev",
+    "api:dev": "node scripts/api-dev-server.mjs",
     "api:smoke": "node scripts/api-smoke.mjs"
   },
   "dependencies": {
